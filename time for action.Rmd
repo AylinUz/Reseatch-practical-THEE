@@ -1,0 +1,86 @@
+---
+title: "R Notebook"
+author: "Aylin Uzdilli"
+date: "14.10.2026"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
+---
+# Reproducibility module
+```{r}
+setwd("~/Documents/uni/Theoretical Eco&Evo/Code/")
+```
+### Setting working directory
+To do this you can click on "session" on the top panel, click on "set working directory" and "choose directory" then copy the directory it shows in the console.
+For the file that I have to send in write a comment like "set your path here" so that it runs without any issue since they don't have the same folder names.
+
+# Shortcuts
+To run a code: *Cmd+Shift+Enter*
+To add new chunck: *cmd+opt+I*
+For this ~ : *opt+N*
+For this « : *opt+semicolumn*
+
+# Annotate outside!
+Commenting this outside makes it a title. One hashtag gives a big title and the more hashtags you add the smaller the title gets
+
+Here we add a description of the text. By switching to "visual" mode (from source) you can edit the font (*like* **this**) and it looks more like the knitted version. You can also add a table where you choose how many row etc. you want. In the source mode it's now going to look different.
+
+| Col1 | Col2 | Col3 |
+|------|------|------|
+|      |      |      |
+|      |      |      |
+|      |      |      |
+
+```{r}
+#Annotate inside!
+plot(cars)
+```
+
+```{r}
+sumof <- 1 + 1
+print(sumof)
+```
+
+```{r}
+# Path of folder where we are storing our results
+absolute_path <- "~/Documents/uni/Theoretical Eco&Evo/Code/"
+```
+Why did we do the step above?
+
+
+
+```{r}
+# Part 1: Simple function to multiply integers from 1 to 20 by parameter value ("multiplier")
+get.multiples1to10 <- function(multiplier) {
+  numbers <- 1:10
+  return(multiplier * numbers)
+}
+
+# Part 2: Display results for parameter value set to 3
+current_value <- 3
+results <- get.multiples1to10(multiplier = current_value)
+print(results) 
+
+# Part 3: Storing our file
+the_filename <- paste(absolute_path, "multiples1to10--multiplier", current_value, ".csv")
+print(the_filename)
+write.csv(results, file = the_filename, row.names = FALSE)
+
+```
+# Legend
+The code above does the following: 
+Part 1: creates the function and gives it a name. function(multiplier) declares that it takes one input, multiplier, which acts as a placeholder for whatever number you pass in. The { opens the function body, where the code to run is written. When you call get.multiples1to10(3), multiplier is 3 inside the function. 1:10 means “from 1 to 10 in steps of 1”). The vector is stored in a variable called "numbers". multiplier * numbers multiplies every element of the vector by multiplier. R does this for all 10 elements at once (vectorization), so no loop is needed. return(...) then sends that result back to the caller. For multiplier = 3, it returns 3 6 9 12 15 18 21 24 27 30. The closing } after it ends the function body.
+
+Part 2: 
+
+Part 3: 
+
+If we click on "edit" on the top bar and click "find", you can search for a code and replace it in the entire document or replace one by one so you don't have to go and change it all by hand.
+You can even if you're searching for lets say a variable that called "e" and want to replace it with "elephant" you can go on "find", search "e" and click on "whole word" so it doesn't also change every word that has an "e" in it.
+
+
+
+
+
